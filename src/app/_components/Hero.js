@@ -76,15 +76,15 @@ export default function Hero({ isVisible = true }) {
 
     const transition = {
         type: "spring",
-        stiffness: 100,
-        damping: 17,
+        stiffness: 200,
+        damping: 14,
         duration: 0.5,
     };
 
     return (
         <div className="flex flex-col items-center relative">
             {isVisible && (
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center -ml-[84px] -mr-[83px]">
                     <motion.div
                         key={`left-${currentIndex}`}
                         custom={direction} // Pass the direction dynamically
@@ -93,14 +93,14 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={transition}
-                        className="w-[254px] h-[254px] z-10 -mr-10 rounded-full overflow-hidden flex items-center justify-center"
+                        className="w-[310px] h-[310px] z-10 -mr-10 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={leftImage}
-                            width={254}
-                            height={254}
+                            width={310}
+                            height={310}
                             alt="Child 1"
-                            className="object-cover w-full h-full opacity-50"
+                            className="object-cover w-full h-full opacity-40"
                         />
                     </motion.div>
 
@@ -112,7 +112,7 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={transition}
-                        className="w-[384px] h-[384px] rounded-full overflow-hidden z-20 border-white border-8"
+                        className="w-[400px] h-[400px] rounded-full overflow-hidden z-20 border-white border-8"
                     >
                         <video
                             src={video}
@@ -131,14 +131,14 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={transition}
-                        className="w-[254px] h-[254px] z-10 -ml-10 rounded-full overflow-hidden flex items-center justify-center"
+                        className="w-[310px] h-[310px] z-10 -ml-10 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={rightImage}
-                            width={254}
-                            height={254}
+                            width={310}
+                            height={310}
                             alt="Child 3"
-                            className="object-cover w-full h-full opacity-50"
+                            className="object-cover w-full h-full opacity-40"
                         />
                     </motion.div>
                 </div>
@@ -147,7 +147,7 @@ export default function Hero({ isVisible = true }) {
             {/* Buttons */}
             <div className="flex items-center space-x-4 mt-16 skewed-button">
                 <button onClick={onPrevious} className="w-10 h-10 text-white rounded-full">←</button>
-                <p className="text-white">{ pages[currentIndex]?.label }</p>
+                <p className="text-white font-bold">{ pages[currentIndex]?.label }</p>
                 <button onClick={onNext} className="w-10 h-10  text-white rounded-full">→</button>
             </div>
         </div>
