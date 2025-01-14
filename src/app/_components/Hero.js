@@ -6,31 +6,67 @@ import {usePathname, useRouter} from "next/navigation";
 import { useState, useEffect } from "react";
 import {useTransitions} from "../_hooks/use-transitions";
 
-export const pages = [
-    {
+export const pages = {
+    "/": {
         label: "Begeleiding",
-        uri: "/"
-    }, {
+        uri: "/",
+        children: {}
+    },
+    "/wie-ben-ik": {
         label: "Wie ben ik",
-        uri: "/wie-ben-ik"
-    }, {
-        label: "Rean",
-        uri: "/rean"
-    }, {
-        label: "Sven",
-        uri: "/sven"
-    }, {
+        uri: "/wie-ben-ik",
+        children: {
+            "/rean": {
+                label: "Rean",
+                uri: "/rean",
+            },
+            "/sven": {
+                label: "Sven",
+                uri: "/sven",
+            }
+        }
+    },
+    "/contact": {
         label: "Contact",
-        uri: "/contact"
+        uri: "/contact",
+        children: {}
     }
-];
+};
+
+function getPageKeys(pages) {
+    let keys = [];
+    for (const key in pages) {
+        keys.push(key);
+        if (pages[key].children && Object.keys(pages[key].children).length > 0) {
+            keys = keys.concat(getPageKeys(pages[key].children));
+        }
+    }
+    return keys;
+}
+
+export function findPageByPath(pages, path) {
+    for (const key in pages) {
+        if (key === path) {
+            return pages[key];
+        }
+        if (pages[key].children) {
+            const childPage = findPageByPath(pages[key].children, path);
+            if (childPage) {
+                return childPage;
+            }
+        }
+    }
+    return null;
+}
+
 export default function Hero({ isVisible = true }) {
     const transitions = useTransitions();
     const router = useRouter();
     const pathname = usePathname();
-    const currentIndex = pages.findIndex((page) => page.uri === pathname);
-    const previousIndex = (currentIndex - 1 + pages.length) % pages.length;
-    const nextIndex = (currentIndex + 1) % pages.length;
+    const pageKeys = getPageKeys(pages);
+    const currentIndex = pageKeys.findIndex((key) => key === pathname);
+    const previousIndex = (currentIndex - 1 + pageKeys.length) % pageKeys.length;
+    const nextIndex = (currentIndex + 1) % pageKeys.length;
     const [direction, setDirection] = useState("left");
     const [video, setVideo] = useState("/video/@2x.mp4");
     const [leftImage, setLeftImage] = useState("/video/contact@2x.mp4.jpg");
@@ -38,22 +74,21 @@ export default function Hero({ isVisible = true }) {
 
     useEffect(() => {
         transitions.slideIntoViewport();
-        setVideo(`/video${pages[currentIndex].uri}@2x.mp4`);
-        setLeftImage(`/video${pages[previousIndex].uri}@2x.mp4.jpg`);
-        setRightImage(`/video${pages[nextIndex].uri}@2x.mp4.jpg`);
-        console.log(leftImage, video, rightImage);
+        setVideo(`/video${pageKeys[currentIndex]}@2x.mp4`);
+        setLeftImage(`/video${pageKeys[previousIndex]}@2x.mp4.jpg`);
+        setRightImage(`/video${pageKeys[nextIndex]}@2x.mp4.jpg`);
     }, [currentIndex]);
 
     async function onNext() {
         setDirection("left");
         await transitions.slideLeft();
-        router.push(pages[nextIndex].uri);
+        router.push(pageKeys[nextIndex]);
     }
 
     async function onPrevious() {
         setDirection("right");
         await transitions.slideRight();
-        router.push(pages[previousIndex].uri);
+        router.push(pageKeys[previousIndex]);
     }
 
     const circleVariants = {
@@ -77,9 +112,22 @@ export default function Hero({ isVisible = true }) {
     const transition = {
         type: "spring",
         stiffness: 200,
-        damping: 14,
+        damping: 16,
         duration: 0.5,
+        delay: 0.05,
     };
+
+    const leftTransition = {
+        ...transition,
+        delay: 0.1,
+    };
+
+    const videoTransition = {
+        ...transition,
+        delay: 0,
+    };
+
+    const currentPage = findPageByPath(pages, pathname);
 
     return (
         <div className="flex flex-col items-center relative">
@@ -87,13 +135,13 @@ export default function Hero({ isVisible = true }) {
                 <div className="flex items-center justify-center -ml-[84px] -mr-[83px]">
                     <motion.div
                         key={`left-${currentIndex}`}
-                        custom={direction} // Pass the direction dynamically
+                        custom={direction}
                         variants={circleVariants}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={transition}
-                        className="w-[310px] h-[310px] z-10 -mr-10 rounded-full overflow-hidden flex items-center justify-center"
+                        transition={leftTransition}
+                        className="w-[310px] h-[310px] z-10 -mr-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={leftImage}
@@ -106,12 +154,12 @@ export default function Hero({ isVisible = true }) {
 
                     <motion.div
                         key={`center-${currentIndex}`}
-                        custom={direction} // Pass the direction dynamically
+                        custom={direction}
                         variants={circleVariants}
                         initial="hidden"
                         animate="visible"
                         exit="exit"
-                        transition={transition}
+                        transition={videoTransition}
                         className="w-[400px] h-[400px] rounded-full overflow-hidden z-20 border-white border-8"
                     >
                         <video
@@ -131,7 +179,7 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={transition}
-                        className="w-[310px] h-[310px] z-10 -ml-10 rounded-full overflow-hidden flex items-center justify-center"
+                        className="w-[310px] h-[310px] z-10 -ml-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={rightImage}
@@ -144,10 +192,9 @@ export default function Hero({ isVisible = true }) {
                 </div>
             )}
 
-            {/* Buttons */}
             <div className="flex items-center space-x-4 mt-16 skewed-button">
                 <button onClick={onPrevious} className="w-10 h-10 text-white rounded-full">←</button>
-                <p className="text-white font-bold">{ pages[currentIndex]?.label }</p>
+                <p className="text-white font-bold">{ currentPage?.label }</p>
                 <button onClick={onNext} className="w-10 h-10  text-white rounded-full">→</button>
             </div>
         </div>
