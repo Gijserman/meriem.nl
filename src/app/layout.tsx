@@ -29,15 +29,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
             >
                 <div
-                    className="grid grid-rows-[63px_1fr_190px] items-center justify-items-center min-h-screen overflow-hidden p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+                    className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen overflow-hidden gap-16 font-[family-name:var(--font-geist-sans)]">
                     <Header />
                     <TransitionProvider containerClassName="h-full">
-                        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start max-w-[773px] text-sm leading-loose">
+                        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[773px] text-xl sm:text-sm leading-loose">
                             <Hero isVisible={true} />
-                            {children}
+                            <div className="p-4">{children}</div>
                         </main>
                     </TransitionProvider>
                     <Footer/>

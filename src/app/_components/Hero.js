@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import {usePathname, useRouter} from "next/navigation";
 import { useState, useEffect } from "react";
 import {useTransitions} from "../_hooks/use-transitions";
+import { useSwipeable } from 'react-swipeable';
 
 export const pages = {
     "/": {
@@ -129,8 +130,15 @@ export default function Hero({ isVisible = true }) {
 
     const currentPage = findPageByPath(pages, pathname);
 
+    const handlers = useSwipeable({
+        onSwipedLeft: onNext,
+        onSwipedRight: onPrevious,
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    });
+
     return (
-        <div className="flex flex-col items-center relative">
+        <div className="flex flex-col items-center relative" {...handlers}>
             {isVisible && (
                 <div className="flex items-center justify-center -ml-[84px] -mr-[83px]">
                     <motion.div
@@ -141,14 +149,16 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={leftTransition}
-                        className="w-[310px] h-[310px] z-10 -mr-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
+                        onClick={onPrevious}
+                        className="w-[200px] h-[200px] sm:w-[310px] sm:h-[310px] z-10 -mr-32 sm:-mr-20 md:-mr-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={leftImage}
                             width={310}
                             height={310}
                             alt="Child 1"
-                            className="object-cover w-full h-full opacity-40"
+                            className="object-cover w-full h-full opacity-40 hover:opacity-60"
+                            priority
                         />
                     </motion.div>
 
@@ -160,7 +170,7 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={videoTransition}
-                        className="w-[400px] h-[400px] rounded-full overflow-hidden z-20 border-white border-8"
+                        className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full overflow-hidden z-20 border-white border-8"
                     >
                         <video
                             src={video}
@@ -168,6 +178,7 @@ export default function Hero({ isVisible = true }) {
                             loop
                             muted
                             className="w-full h-full object-cover"
+                            poster={`${video}.jpg`}
                         ></video>
                     </motion.div>
 
@@ -179,14 +190,16 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={transition}
-                        className="w-[310px] h-[310px] z-10 -ml-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
+                        onClick={onNext}
+                        className="w-[200px] h-[200px] sm:w-[310px] sm:h-[310px] z-10 -ml-32 sm:-mr-20 md:-ml-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={rightImage}
                             width={310}
                             height={310}
                             alt="Child 3"
-                            className="object-cover w-full h-full opacity-40"
+                            className="object-cover w-full h-full opacity-40 hover:opacity-60"
+                            priority
                         />
                     </motion.div>
                 </div>
