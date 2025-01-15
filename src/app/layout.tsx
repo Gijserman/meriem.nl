@@ -32,14 +32,16 @@ export default function RootLayout({
                 className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
             >
                 <div
-                    className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen overflow-hidden gap-16 font-[family-name:var(--font-geist-sans)]">
+                    className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16 font-[family-name:var(--font-geist-sans)]">
                     <Header />
-                    <TransitionProvider containerClassName="h-full">
-                        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[773px] text-xl sm:text-sm leading-loose">
-                            <Hero isVisible={true} />
-                            <div className="p-4">{children}</div>
-                        </main>
-                    </TransitionProvider>
+                    <div className="w-full overflow-hidden flex justify-center items-center">
+                        <TransitionProvider containerClassName="h-full">
+                            <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[773px] text-xl sm:text-sm leading-loose">
+                                <Hero isVisible={true} />
+                                <div className="p-4">{children}</div>
+                            </main>
+                        </TransitionProvider>
+                    </div>
                     <Footer/>
                 </div>
             </body>
