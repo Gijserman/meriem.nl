@@ -20,7 +20,7 @@ export default function Menu() {
     };
 
     return (
-        <menu className="flex justify-between sm:justify-start text-xl sm:text-sm my-4 sm:my-0">
+        <menu className="flex justify-between sm:justify-start text-base sm:text-sm my-4 sm:my-0">
             {Object.keys(pages).map((key) => {
                 const page = pages[key];
                 return (
