@@ -29,11 +29,11 @@ export default function RootLayout({
     return (
         <html lang="en">
         <head>
-            <link rel="preload" href="/video/@2x.mp4.jpg" as="image"/>
-            <link rel="preload" href="/video/wie-ben-ik@2x.mp4.jpg" as="image"/>
-            <link rel="preload" href="/video/rean@2x.mp4.jpg" as="image"/>
-            <link rel="preload" href="/video/sven@2x.mp4.jpg" as="image"/>
-            <link rel="preload" href="/video/contact@2x.mp4.jpg" as="image"/>
+            <link rel="preload" href={`/_next/image?url=%2Fvideo%2F%402x.mp4.jpg&w=640&q=75`} as="image"/>
+            <link rel="preload" href={`/_next/image?url=%2Fvideo%2Fwie-ben-ik%402x.mp4.jpg&w=640&q=75`} as="image"/>
+            <link rel="preload" href={`/_next/image?url=%2Fvideo%2Frean%402x.mp4.jpg&w=640&q=75`} as="image"/>
+            <link rel="preload" href={`/_next/image?url=%2Fvideo%2Fsven%402x.mp4.jpg&w=640&q=75`} as="image"/>
+            <link rel="preload" href={`/_next/image?url=%2Fvideo%2Fcontact%402x.mp4.jpg&w=640&q=75`} as="image"/>
         </head>
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
