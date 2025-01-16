@@ -26,8 +26,7 @@ export default function Footer() {
             </section>
             <p className="w-full max-w-[1024px] p-8 text-center">
                 Ik kan me voorstellen dat je nog vragen hebt. Bel me voor antwoorden en advies op 06 145 29 630 of stuur
-                een
-                bericht naar mail@meriem.nl
+                een bericht naar mail@meriem.nl
             </p>
         </footer>
     )
