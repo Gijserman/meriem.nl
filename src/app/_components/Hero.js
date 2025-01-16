@@ -150,7 +150,7 @@ export default function Hero({ isVisible = true }) {
                         exit="exit"
                         transition={leftTransition}
                         onClick={onPrevious}
-                        className="w-[200px] h-[200px] sm:w-[310px] sm:h-[310px] z-10 -ml-32 sm:-ml-20 md:-mr-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
+                        className="w-[200px] h-[200px] sm:w-[310px] sm:h-[310px] z-10 -mr-32 sm:-ml-20 md:-mr-10 mt-24 rounded-full overflow-hidden flex items-center justify-center"
                     >
                         <Image
                             src={leftImage}
