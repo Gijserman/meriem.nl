@@ -74,6 +74,7 @@ export default function Hero({ isVisible = true }) {
     const [rightImage, setRightImage] = useState("/video/wie-ben-ik@2x.mp4.jpg");
 
     useEffect(() => {
+        console.log(currentIndex);
         transitions.slideIntoViewport();
         setVideo(`/video${pageKeys[currentIndex]}@2x.mp4`);
         setLeftImage(`/video${pageKeys[previousIndex]}@2x.mp4.jpg`);
