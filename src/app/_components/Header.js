@@ -12,7 +12,7 @@ export default function Header() {
             </div>
             <div className="flex w-full max-w-[773px] justify-between leading-10 flex-col md:flex-row">
                 <Menu />
-                <address className="hidden sm:block">
+                <address className="hidden sm:block leading-tight">
                     Heb je vragen? Bel me op <strong>06 145 29 630</strong>
                 </address>
             </div>
