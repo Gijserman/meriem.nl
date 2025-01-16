@@ -39,7 +39,7 @@ export default function RootLayout({
             className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
             >
                 <div
-                    className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16 font-[family-name:var(--font-geist-sans)]">
+                    className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-8 sm:gap-16 font-[family-name:var(--font-geist-sans)]">
                     <Header />
                     <div className="w-full overflow-hidden flex justify-center items-center">
                         <TransitionProvider containerClassName="h-full">
