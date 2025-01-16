@@ -3,7 +3,7 @@ import Menu from "@/app/_components/Menu";
 import Link from "next/link";
 export default function Header() {
     return (
-        <header className="sticky top-0 z-50 bg-white uppercase text-sm pt-8 md:pt-20 w-full px-8 md:px-0 flex flex-col items-center">
+        <header className="sticky top-0 z-50 bg-white uppercase text-sm pt-8 md:pt-20 w-full px-4 md:px-0 flex flex-col items-center">
             <div className="flex w-full max-w-[773px] justify-between flex-col md:flex-row">
                 <Link href="/">
                 <Image src={'/logo@2x.png'} alt={'Logo Meriem'} width={104} height={23}/>
