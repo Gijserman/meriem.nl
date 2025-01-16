@@ -28,15 +28,22 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
+        <head>
+            <link rel="preload" href="/video/@2x.mp4.jpg" as="image"/>
+            <link rel="preload" href="/video/wie-ben-ik@2x.mp4.jpg" as="image"/>
+            <link rel="preload" href="/video/rean@2x.mp4.jpg" as="image"/>
+            <link rel="preload" href="/video/sven@2x.mp4.jpg" as="image"/>
+            <link rel="preload" href="/video/contact@2x.mp4.jpg" as="image"/>
+        </head>
+        <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
             >
                 <div
                     className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-16 font-[family-name:var(--font-geist-sans)]">
                     <Header />
                     <div className="w-full overflow-hidden flex justify-center items-center">
                         <TransitionProvider containerClassName="h-full">
-                            <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-[773px] text-xl sm:text-sm leading-loose">
+                            <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-[773px] text-xl sm:text-sm leading-loose">
                                 <Hero isVisible={true} />
                                 <div className="p-4">{children}</div>
                             </main>
