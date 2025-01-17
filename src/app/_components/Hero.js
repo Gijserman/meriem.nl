@@ -137,6 +137,16 @@ export default function Hero({ isVisible = true }) {
         trackMouse: true
     });
 
+    const [hovered, setHovered] = useState(null);
+
+    const handleMouseEnter = (direction) => {
+        setHovered(direction);
+    };
+
+    const handleMouseLeave = () => {
+        setHovered(null);
+    };
+
     return (
         <div className="flex flex-col items-center relative" {...handlers}>
             {isVisible && (
@@ -205,10 +215,24 @@ export default function Hero({ isVisible = true }) {
                 </div>
             )}
 
-            <div className="flex items-center space-x-4 mt-16 skewed-button">
-                <button onClick={onPrevious} className="w-10 h-10 text-white rounded-full">←</button>
-                <p className="text-white font-bold">{ currentPage?.label }</p>
-                <button onClick={onNext} className="w-10 h-10  text-white rounded-full">→</button>
+            <div
+                className={`flex items-center space-x-4 mt-16 skewed-button ${
+                    hovered === 'left' ? 'skew-left' : hovered === 'right' ? 'skew-right' : ''
+                }`}
+            >
+                <button
+                    onClick={onPrevious}
+                    className="w-10 h-10 text-white rounded-full next-button"
+                    onMouseEnter={() => handleMouseEnter('left')}
+                    onMouseLeave={handleMouseLeave}
+                >←</button>
+                <h1 className="text-white font-bold">{ currentPage?.label }</h1>
+                <button
+                    onClick={onNext}
+                    className="w-10 h-10  text-white rounded-full next-button"
+                    onMouseEnter={() => handleMouseEnter('right')}
+                    onMouseLeave={handleMouseLeave}
+                >→</button>
             </div>
         </div>
     );

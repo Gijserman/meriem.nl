@@ -44,7 +44,7 @@ export default {
       addUtilities({
         '.skewed-button': {
           position: 'relative',
-          padding: '0rem 1rem 0.5rem 0.5rem',
+          padding: '0rem 1rem 0.5rem 1rem',
         },
         '.skewed-button:before': {
           content: '""',
@@ -57,9 +57,10 @@ export default {
           top: '0',
           left: '-2px',
           border: '2px solid var(--code-block-pink)',
-          transform: 'skew(-25deg, 0)',
+          transform: 'skew(0deg, 0)',
           transformOrigin: 'left',
           borderRadius: '10px',
+          transition: 'transform 0.3s ease',
         },
       });
     },

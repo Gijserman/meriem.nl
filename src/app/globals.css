@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+.skew-left:before {
+  transform: skewX(25deg); /* Skew to the left */
+}
+
+.skew-right:before {
+  transform: skewX(-25deg); /* Skew to the right */
+}
