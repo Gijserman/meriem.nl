@@ -29,3 +29,7 @@ body {
 .skew-right:before {
   transform: skewX(-25deg); /* Skew to the right */
 }
+
+a {
+  color: rgb(239 68 68);
+}

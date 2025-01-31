@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bbob/preset-react": "^4.2.0",
+    "@bbob/react": "^4.2.0",
+    "@datocms/cma-client-node": "^3.4.2",
     "classnames": "^2.5.1",
     "motion": "^11.16.4",
     "next": "15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-swipeable": "^7.0.2"
+    "react-markdown": "^9.0.3",
+    "react-swipeable": "^7.0.2",
+    "remark-breaks": "^4.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
