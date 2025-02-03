@@ -1,18 +1,19 @@
-import {fetchData} from "./fetchData";
+import {fetchData, fetchGlobalSEO} from "./fetchData";
 
 export async function fetchMetadata(type) {
+    const globalSEO = await fetchGlobalSEO();
     const pageData = await fetchData(type);
     const page = pageData?.[0];
     const canonicalUrl = `${process.env.NEXT_BASE_URL}/${type}`;
 
     return {
-        title: page?.title || 'Default Title',
-        description: page?.content || 'Default description', // Fallback if content is missing
+        title: page?.title || globalSEO.fallback_seo.title || 'Default Title',
+        description: globalSEO.fallback_seo.description || page?.content || 'Default description',
         alternates: {
             canonical: canonicalUrl,
         },
         openGraph: {
-            title: page?.title || 'Default Title',
+            title: page?.title || globalSEO.fallback_seo.title || 'Default Title',
             type: 'website',
             url: canonicalUrl,
             images: [
@@ -20,7 +21,7 @@ export async function fetchMetadata(type) {
                     url: `/video/${type}@2x.mp4.jpg`,
                     width: 630,
                     height: 630,
-                    alt: page?.title || 'Default Alt Text',
+                    alt: page?.title || globalSEO.fallback_seo.title || 'Default Alt Text',
                 },
             ],
         },

@@ -9,3 +9,8 @@ export async function fetchData(type) {
         },
     });
 }
+
+export async function fetchGlobalSEO() {
+    const response = await client.site.find();
+    return response.global_seo;
+}
