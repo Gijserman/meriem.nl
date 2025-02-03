@@ -2,7 +2,7 @@ import {fetchData} from "./fetchData";
 
 export async function fetchMetadata(type) {
     const page = await fetchData(type);
-    const canonicalUrl = `${process.env.BASE_URL}/${type}`;
+    const canonicalUrl = `${process.env.NEXT_BASE_URL}/${type}`;
 
     return {
         title: page.title,
