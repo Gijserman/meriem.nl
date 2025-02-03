@@ -4,7 +4,6 @@ import remarkBreaks from 'remark-breaks';
 
 export default async function Page({type}) {
     const page = await fetchData(type);
-
     return (
         <>
             {page.map((item) => (

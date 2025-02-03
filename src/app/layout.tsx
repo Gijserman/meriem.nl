@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Meriem | Rugzakbegeleiding - PGB-begeleiding - Remedial Teaching - regio Amsterdam, Weesp en Muiden",
+  title: "Meriem | Rugzakbegeleiding regio Amsterdam, Weesp en Muiden",
   description: "Rugzakbegeleiding - PGB-begeleiding - Remedial Teaching regio Amsterdam, Weesp en Muiden",
 };
 
