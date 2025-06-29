@@ -36,7 +36,7 @@ export default function RootLayout({
             <link rel="preload" href={`/_next/image?url=%2Fvideo%2Fcontact%402x.mp4.jpg&w=640&q=75`} as="image"/>
         </head>
         <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-600`}
+            className={`${geistSans.variable} ${geistMono.variable} antialiased text-foreground`}
             >
                 <div
                     className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen gap-8 sm:gap-16 font-[family-name:var(--font-geist-sans)]">
