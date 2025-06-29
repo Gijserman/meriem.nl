@@ -14,7 +14,7 @@ export default async function Footer() {
                             {item.title}
                         </h2>
                         <Markdown
-                            className="text-gray-700 leading-loose max-w-[300px] mx-auto"
+                            className="text-secondary leading-loose max-w-[300px] mx-auto"
                             remarkPlugins={[remarkBreaks]}
                         >
                             {item.content}

@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #4b5563;
+  --secondary: #374151;
   --bg-footer: #f3f4f6;
 }
 
@@ -12,6 +13,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --secondary: #9CA3AF;
     --bg-footer: #1f2937;
   }
 }

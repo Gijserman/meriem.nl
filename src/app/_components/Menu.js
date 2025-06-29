@@ -27,7 +27,7 @@ export default function Menu() {
                     <Link
                         key={page.uri}
                         href={page.uri}
-                        className={`mr-2 ${isActive(page) ? 'text-red-500' : '!text-gray-700'}`}
+                        className={`mr-2 ${isActive(page) ? 'text-red-500' : '!text-secondary'}`}
                     >
                         {page.label}
                     </Link>

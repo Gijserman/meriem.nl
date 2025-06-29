@@ -13,6 +13,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         bgfooter: "var(--bg-footer)",
+        secondary: "var(--secondary)",
       },
       animation: {
         "slide-left-out": "0.2s ease-in forwards slide-left-out",
