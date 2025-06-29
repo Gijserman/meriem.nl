@@ -180,7 +180,7 @@ export default function Hero({ isVisible = true }) {
                         animate="visible"
                         exit="exit"
                         transition={videoTransition}
-                        className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full overflow-hidden z-20 border-white border-8"
+                        className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] rounded-full overflow-hidden z-20 border-background border-8"
                     >
                         <video
                             src={video}

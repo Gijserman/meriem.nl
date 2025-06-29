@@ -7,7 +7,7 @@ import {fetchData} from "@/utils/fetchData";
 export default async function Header() {
     const header = await fetchData('header');
     return (
-        <header className="sticky top-0 z-50 bg-white uppercase text-sm pt-8 md:pt-20 w-full px-4 md:px-0 flex flex-col items-center">
+        <header className="sticky top-0 z-50 bg-background uppercase text-sm pt-8 md:pt-20 w-full px-4 md:px-0 flex flex-col items-center">
             <div className="flex w-full max-w-[773px] justify-between flex-col md:flex-row">
                 <Link href="/">
                 <Image src={'/logo@2x.png'} alt={'Logo Meriem'} width={104} height={23}/>

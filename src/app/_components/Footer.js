@@ -6,7 +6,7 @@ export default async function Footer() {
     const footerColumns = await fetchData('footer_column');
     const footerText = await fetchData('footer_text');
     return (
-        <footer className="w-full row-start-3 flex flex-col flex-wrap items-center justify-center text-xs bg-gray-100">
+        <footer className="w-full row-start-3 flex flex-col flex-wrap items-center justify-center text-xs bg-bgfooter">
             <section className="w-full max-w-[1024px] grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-b-2">
                 {footerColumns.map((item) => (
                     <div key={item.id} className="text-center md:text-left">

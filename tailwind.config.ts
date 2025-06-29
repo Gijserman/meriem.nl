@@ -12,6 +12,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        bgfooter: "var(--bg-footer)",
       },
       animation: {
         "slide-left-out": "0.2s ease-in forwards slide-left-out",
