@@ -9,12 +9,22 @@
   --bg-footer: #f3f4f6;
 }
 
+.dark {
+  display: none;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
     --secondary: #9CA3AF;
     --bg-footer: #1f2937;
+  }
+  .light {
+    display: none;
+  }
+  .dark {
+    display: block;
   }
 }
 

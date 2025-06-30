@@ -10,7 +10,8 @@ export default async function Header() {
         <header className="sticky top-0 z-50 bg-background uppercase text-sm pt-8 md:pt-20 w-full px-4 md:px-0 flex flex-col items-center">
             <div className="flex w-full max-w-[773px] justify-between flex-col md:flex-row">
                 <Link href="/">
-                <Image src={'/logo@2x.png'} alt={'Logo Meriem'} width={104} height={23}/>
+                    <Image className="light" src={'/logo@2x.png'} alt={'Logo Meriem'} width={104} height={23}/>
+                    <Image className="dark" src={'/logo_darkmode.png'} alt={'Logo Meriem'} width={104} height={23}/>
                 </Link>
                 <Image src={'/topstreep.png'} alt={'Streep'} layout="responsive" width={652} height={23}/>
             </div>
