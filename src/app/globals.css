@@ -15,10 +15,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #333333;
     --foreground: #ededed;
     --secondary: #9CA3AF;
-    --bg-footer: #1f2937;
+    --bg-footer: #222222;
   }
   .light {
     display: none;
