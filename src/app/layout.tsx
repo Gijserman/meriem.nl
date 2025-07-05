@@ -45,7 +45,7 @@ export default function RootLayout({
                         <TransitionProvider containerClassName="h-full">
                             <main className="flex flex-col gap-8 row-start-2 items-center w-full max-w-[773px] text-xl sm:text-sm leading-loose">
                                 <Hero isVisible={true} />
-                                <div className="p-4">{children}</div>
+                                <div className="p-8 sm:p-4">{children}</div>
                             </main>
                         </TransitionProvider>
                     </div>

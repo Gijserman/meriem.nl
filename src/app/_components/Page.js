@@ -9,7 +9,7 @@ export default async function Page({type}) {
         <>
             {page.map((item) => (
                 <Fragment key={item.id}>
-                    <p>{item.content}</p>
+                    <p className="leading-7 sm:leading-6">{item.content}</p>
                     {item.kolom1 && item.kolom2 && item.kolom3 &&
                         <div className="flex justify-between sm:items-end flex-wrap mt-2.5 flex-col sm:flex-row">
                             <div><Markdown remarkPlugins={[remarkBreaks]}>{item.kolom1}</Markdown></div>
