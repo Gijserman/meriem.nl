@@ -216,7 +216,7 @@ export default function Hero({ isVisible = true }) {
             )}
 
             <div
-                className={`flex items-center space-x-4 mt-16 skewed-button ${
+                className={`flex grow-0 items-center space-x-4 mt-16 skewed-button ${
                     hovered === 'left' ? 'skew-left' : hovered === 'right' ? 'skew-right' : ''
                 }`}
             >
